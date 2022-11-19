@@ -1,6 +1,7 @@
 package com.br.retrobackend.service;
 
 import com.br.retrobackend.entitys.Retrospective;
+import com.br.retrobackend.repository.RetrospectiveRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,9 +10,9 @@ import java.util.Optional;
 @Service
 public class RetrospectiveService {
 
-    private final com.br.retrobackend.repository.RetrospectiveService retrospectiveRepository;
+    private final RetrospectiveRepository retrospectiveRepository;
 
-    public RetrospectiveService(com.br.retrobackend.repository.RetrospectiveService retrospectiveRepository) {
+    public RetrospectiveService(RetrospectiveRepository retrospectiveRepository) {
         super();
         this.retrospectiveRepository = retrospectiveRepository;
     }
@@ -24,11 +25,11 @@ public class RetrospectiveService {
         return this.retrospectiveRepository.findAll();
     }
 
-    public Optional<Retrospective> findById(int id) {
+    public Optional<Retrospective> findById(Integer id) {
         return this.retrospectiveRepository.findById(id);
     }
 
-    public void deleteById(int id) {
+    public void deleteById(Integer id) {
         this.retrospectiveRepository.deleteById(id);
     }
 }

@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RetrospectiveService extends JpaRepository<Retrospective, Integer> {
+public interface RetrospectiveRepository extends JpaRepository<Retrospective, Integer> {
 }

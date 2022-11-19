@@ -1,8 +1,9 @@
 package com.br.retrobackend.resource;
 
 import com.br.retrobackend.entitys.Retrospective;
-import com.br.retrobackend.repository.RetrospectiveService;
+import com.br.retrobackend.repository.RetrospectiveRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,17 +12,19 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/retrospective")
+@RequestMapping(path = "/retrospective", produces = MediaType.APPLICATION_JSON_VALUE)
 public class RetrospectiveResource {
 
-    private final RetrospectiveService retrospectiveService;
+    private final RetrospectiveRepository retrospectiveService;
 
-    public RetrospectiveResource(RetrospectiveService retrospectiveService) {
+    public RetrospectiveResource(RetrospectiveRepository retrospectiveService) {
         super();
         this.retrospectiveService = retrospectiveService;
     }
 
-    @PostMapping
+
+    @PostMapping(value = "/save",
+            consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Retrospective> save(@RequestBody Retrospective retrospective) {
 
         this.retrospectiveService.save(retrospective);
@@ -29,7 +32,7 @@ public class RetrospectiveResource {
 
     }
 
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<List<Retrospective>> getAll() {
 
         List<Retrospective> retrospectives;
@@ -38,7 +41,7 @@ public class RetrospectiveResource {
 
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Retrospective>> getById(@PathVariable Integer id) {
         Optional<Retrospective> retrospective;
 
@@ -54,7 +57,7 @@ public class RetrospectiveResource {
         }
     }
 
-    @DeleteMapping(path = "delete/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Optional<Retrospective>> deleteById(@PathVariable Integer id) {
 
         try {
@@ -69,7 +72,7 @@ public class RetrospectiveResource {
         }
     }
 
-    @PutMapping(path = "update/{id}")
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<Retrospective> update(@PathVariable Integer id, @RequestBody Retrospective newRetrospective) {
 
         return this.retrospectiveService.findById(id)
