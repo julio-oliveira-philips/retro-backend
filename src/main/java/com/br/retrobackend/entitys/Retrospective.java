@@ -1,5 +1,6 @@
 package com.br.retrobackend.entitys;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,8 @@ import java.time.LocalDate;
 @Entity
 public class Retrospective {
 
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     @GeneratedValue
     @Id
     private int retrospectiveId;
