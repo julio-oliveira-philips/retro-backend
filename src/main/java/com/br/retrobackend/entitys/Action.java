@@ -12,8 +12,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "retrospective")
-public class Retrospective implements Serializable {
+@Table(name = "action")
+public class Action implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -21,16 +21,16 @@ public class Retrospective implements Serializable {
     @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    private int retrospectiveId;
+    private int actionId;
 
-    @Column(name = "name_retrospective")
-    private String nameRetrospective;
+    @Column(name = "action_description")
+    private String actionDescription;
 
-    @Column(name = "start_date")
-    private LocalDate startDate;
+    @Column(name = "create_date")
+    private LocalDate createDate;
 
-    @Column(name = "end_date")
-    private LocalDate endDate;
+    @Column(name = "owner")
+    private String owner;
 
     @Column(name = "finished")
     private Boolean finished;

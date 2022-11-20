@@ -1,7 +1,7 @@
 package com.br.retrobackend.resource;
 
 import com.br.retrobackend.entitys.Retrospective;
-import com.br.retrobackend.repository.RetrospectiveRepository;
+import com.br.retrobackend.service.RetrospectiveService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +15,9 @@ import java.util.Optional;
 @RequestMapping(path = "/retrospective", produces = MediaType.APPLICATION_JSON_VALUE)
 public class RetrospectiveResource {
 
-    private final RetrospectiveRepository retrospectiveService;
+    private final RetrospectiveService retrospectiveService;
 
-    public RetrospectiveResource(RetrospectiveRepository retrospectiveService) {
+    public RetrospectiveResource(RetrospectiveService retrospectiveService) {
         super();
         this.retrospectiveService = retrospectiveService;
     }
@@ -36,7 +36,7 @@ public class RetrospectiveResource {
     public ResponseEntity<List<Retrospective>> getAll() {
 
         List<Retrospective> retrospectives;
-        retrospectives = this.retrospectiveService.findAll();
+        retrospectives = this.retrospectiveService.getAll();
         return new ResponseEntity<>(retrospectives, HttpStatus.OK);
 
     }
