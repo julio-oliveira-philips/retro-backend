@@ -42,7 +42,7 @@ public class ActionResource {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<Action>> getById(@PathVariable Integer id) {
+    public ResponseEntity<Optional<Action>> getById(@PathVariable Long id) {
 
         Optional<Action> action;
 
@@ -59,7 +59,7 @@ public class ActionResource {
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<Optional<Action>> deleteById(@PathVariable Integer id) {
+    public ResponseEntity<Optional<Action>> deleteById(@PathVariable Long id) {
 
         try {
 
@@ -74,7 +74,7 @@ public class ActionResource {
     }
 
     @PutMapping(value = "/update/{id}")
-    public ResponseEntity<Action> update(@PathVariable Integer id, @RequestBody Action newAction) {
+    public ResponseEntity<Action> update(@PathVariable Long id, @RequestBody Action newAction) {
 
         return this.actionService.findById(id)
                 .map(action -> {

@@ -27,11 +27,11 @@ public class ActionService {
         return this.actionRepository.findAll();
     }
 
-    public Optional<Action> findById(Integer id) {
+    public Optional<Action> findById(Long id) {
         return this.actionRepository.findById(id);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         this.actionRepository.deleteById(id);
     }
 }

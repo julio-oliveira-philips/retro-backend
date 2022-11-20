@@ -22,7 +22,7 @@ public class Retrospective implements Serializable {
     @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    private int retrospectiveId;
+    private Long retrospectiveId;
 
     @NotNull
     @Column(name = "name_retrospective")

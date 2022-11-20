@@ -22,7 +22,7 @@ public class Action implements Serializable {
     @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    private int actionId;
+    private Long actionId;
 
     @NotNull
     @Column(name = "action_description")

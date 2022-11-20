@@ -42,7 +42,7 @@ public class RetrospectiveResource {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<Retrospective>> getById(@PathVariable Integer id) {
+    public ResponseEntity<Optional<Retrospective>> getById(@PathVariable Long id) {
         Optional<Retrospective> retrospective;
 
         try {
@@ -58,7 +58,7 @@ public class RetrospectiveResource {
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<Optional<Retrospective>> deleteById(@PathVariable Integer id) {
+    public ResponseEntity<Optional<Retrospective>> deleteById(@PathVariable Long id) {
 
         try {
 
@@ -73,7 +73,7 @@ public class RetrospectiveResource {
     }
 
     @PutMapping(value = "/update/{id}")
-    public ResponseEntity<Retrospective> update(@PathVariable Integer id, @RequestBody Retrospective newRetrospective) {
+    public ResponseEntity<Retrospective> update(@PathVariable Long id, @RequestBody Retrospective newRetrospective) {
 
         return this.retrospectiveService.findById(id)
                 .map(retrospective -> {

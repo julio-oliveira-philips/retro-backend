@@ -25,11 +25,11 @@ public class RetrospectiveService {
         return this.retrospectiveRepository.findAll();
     }
 
-    public Optional<Retrospective> findById(Integer id) {
+    public Optional<Retrospective> findById(Long id) {
         return this.retrospectiveRepository.findById(id);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         this.retrospectiveRepository.deleteById(id);
     }
 }
