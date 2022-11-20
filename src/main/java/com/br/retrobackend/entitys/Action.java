@@ -1,5 +1,6 @@
 package com.br.retrobackend.entitys;
 
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,15 +24,19 @@ public class Action implements Serializable {
     @Id
     private int actionId;
 
+    @NotNull
     @Column(name = "action_description")
     private String actionDescription;
 
+    @NotNull
     @Column(name = "create_date")
     private LocalDate createDate;
 
+    @NotNull
     @Column(name = "owner")
     private String owner;
 
+    @NotNull
     @Column(name = "finished")
     private Boolean finished;
 

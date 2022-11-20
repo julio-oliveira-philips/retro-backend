@@ -1,5 +1,6 @@
 package com.br.retrobackend.entitys;
 
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,12 +23,15 @@ public class User implements Serializable {
     @Id
     private int userId;
 
+    @NotNull
     @Column(name = "user_name")
     private String userName;
 
+    @NotNull
     @Column(name = "email")
     private String email;
 
+    @NotNull
     @Column(name = "password")
     private String password;
 
